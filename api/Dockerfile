@@ -1,14 +1,12 @@
 FROM ruby:2.7.1-alpine
 
 ARG WORKDIR
+ARG RUNTIME_PACKAGES="nodejs tzdata postgresql-dev postgresql git"
+ARG DEV_PACKAGES="build-base curl-dev"
 
-ENV RUNTIME_PACKAGES="linux-headers libxml2-dev make gcc libc-dev nodejs tzdata postgresql-dev postgresql git" \
-    DEV_PACKAGES="build-base curl-dev" \
-    HOME=/${WORKDIR} \
+ENV HOME=/${WORKDIR} \
     LANG=C.UTF-8 \
     TZ=Asia/Tokyo
-
-RUN echo ${HOME}
 
 WORKDIR ${HOME}
 
